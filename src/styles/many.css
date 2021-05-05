@@ -1,8 +1,7 @@
 .many-container {
   display: grid;
   place-items: center;
-  width: 100vw;
-  height: 100vh;
+  flex-grow: 1;
 }
 
 .many-buttons {
