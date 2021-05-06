@@ -3,19 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createStore, compose } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
 import reducers from './stores'
 import { Provider } from 'react-redux'
-
-declare global {
-  interface Window {
-    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose
-  }
-}
+import { composeWithDevTools } from 'redux-devtools-extension'
 
 const store = createStore(
   reducers,
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__()
+  composeWithDevTools(
+    applyMiddleware(...[thunk])
+  )
 )
 
 ReactDOM.render(

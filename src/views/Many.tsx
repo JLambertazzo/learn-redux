@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { Button, Typography } from '@material-ui/core'
-import { incrementCount, nextButton } from '../constants/actions'
+import { incrementCount, genNextButton } from '../constants/actions'
 import { useDispatch, useSelector, RootStateOrAny } from 'react-redux'
 import '../styles/many.css'
 
@@ -14,7 +14,7 @@ const Grid = () => {
   function handleHome () {
     if (next === 505) {
       dispatch(incrementCount())
-      dispatch(nextButton())
+      dispatch(genNextButton())
     } else {
       history.push('/')
     }
@@ -22,7 +22,7 @@ const Grid = () => {
 
   function handleCorrect () {
     dispatch(incrementCount())
-    dispatch(nextButton())
+    dispatch(genNextButton())
     history.push('/')
   }
 

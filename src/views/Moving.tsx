@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { incrementCount, nextButton } from '../constants/actions'
+import { incrementCount, genNextButton } from '../constants/actions'
 import { useDispatch, useSelector, RootStateOrAny } from 'react-redux'
 import { Typography, Button } from '@material-ui/core'
 import '../styles/moving.css'
@@ -23,14 +23,14 @@ const Moving = () => {
   function handleGot () {
     if (next === 503) {
       dispatch(incrementCount())
-      dispatch(nextButton())
+      dispatch(genNextButton())
     }
   }
 
   function handleHome () {
     if (next === 504) {
       dispatch(incrementCount())
-      dispatch(nextButton())
+      dispatch(genNextButton())
       history.push('/')
     } else {
       history.push('/')
